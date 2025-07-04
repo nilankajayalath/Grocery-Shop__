@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Custom Module Category -->
+    <record id="module_category_grocery_shop" model="ir.module.category">
+        <field name="name">Grocery Shop</field>
+        <field name="description">Access Rights for Grocery Shop Management</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="group_grocery_shop_manager" model="res.groups">
+        <field name="name">Grocery Shop Manager</field>
+        <field name="category_id" ref="grocery_custom.module_category_grocery_shop"/>
+    </record>
+
+    <!-- User Group -->
+    <record id="group_grocery_shop_user" model="res.groups">
+        <field name="name">Grocery Shop User</field>
+        <field name="category_id" ref="grocery_custom.module_category_grocery_shop"/>
+        <!-- Optional: imply manager rights to user -->
+        <field name="implied_ids" eval="[(4, ref('grocery_custom.group_grocery_shop_manager'))]"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_grocery_details_form_inherit" model="ir.ui.view">
+        <field name="name">grocery.details.form.inherit</field>
+        <field name="model">grocery.details</field>
+        <field name="inherit_id" ref="grocery_shop.view_grocery_details_form"/>
+        <field name="arch" type="xml">
+
+         
+
+            <!-- 🔹 Add Brand Name field -->
+            <xpath expr="//sheet//group//group[2]//field[@name='category']" position="after">
+                <field name="brand_name"/>
+            </xpath>
+
+              <!-- 🔹 Add Brand Name field -->
+            <xpath expr="//sheet//group//group[2]//field[@name='category']" position="attributes">
+                <attribute name="groups">grocery_custom.group_grocery_shop_user</attribute> 
+            </xpath>
+
+            <!-- 🔹 Add object buttons to header -->
+            <xpath expr="//form//header" position="inside">
+                <button name="inherited_grocery_store" type="object" string="Show Stock" class="oe_highlight"/>
+                <button name="check_availability" type="object" string="Check Availability" class="oe_highlight"/>
+            </xpath>
+            
+
+                        <!-- ✅ Add Contacts Tab -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Contacts">
+                    <div class="oe_button_box" name="extra_contact_buttons">
+                        <button type="object" name="add_contact" string="Add Contact" class="btn btn-primary"/>
+                        <button type="object" name="edit_contact" string="Edit Contact" class="btn btn-secondary"/>
+                        <button type="object" name="clear_contact" string="Clear Contact" class="btn btn-danger"/>
+                    </div>
+
+                    <group>
+                        <field name="edit_id"/>
+                        <field name="edit_value"/>
+                    </group>
+
+                    <field name="contact_ids">
+                        <tree editable="bottom">
+                            <field name="id"/>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="name"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+
+      
+
+        </field>
+    </record>
+</odoo>
+   

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_grocery_details" model="ir.actions.report">
+        <field name="name">Grocery Details Report</field>
+        <field name="model">grocery.details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">grocery_custom.report_grocery_details</field>
+        <field name="report_file">grocery_custom.report_grocery_details</field>
+        <field name="print_report_name">'Grocery - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_grocery_details"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="grocery_custom.paperformat_grocery_report"/>      
+    </record>
+
+    <record id="action_report_grocery_new" model="ir.actions.report">
+        <field name="name">Grocery Details Report New</field>
+        <field name="model">grocery.details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">grocery_custom.report_grocery_new</field>
+        <field name="report_file">grocery_custom.report_grocery_new</field>
+        <field name="print_report_name">'Grocery new - %s' % (object.name)</field>
+        
+        <!-- FIXED binding_model_id reference -->
+        <field name="binding_model_id" ref="model_grocery_details"/>
+        
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="grocery_custom.paperformat_grocery_report"/>
+    </record>
+
+
+    <record id="action_report_grocery_details_wizard" model="ir.actions.report">
+        <field name="name">Grocery Report from Wizard</field>
+        <field name="model">grocery.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">grocery_custom.report_grocery_new</field>
+        <field name="report_file">grocery_custom.report_grocery_new</field>
+        <field name="print_report_name">'Grocery_Report_From_%s' % (object.start_date)</field>
+        <field name="paperformat_id" ref="grocery_custom.paperformat_grocery_report"/>
+    </record>
+
+
+</odoo>

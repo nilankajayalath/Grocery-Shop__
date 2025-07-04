@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- report/report_template.xml -->
+<odoo>
+  <template id="report_grocery_new">
+    <t t-call="web.html_container">
+      <t t-call="web.external_layout">
+        <div class="page">
+          <h2>Grocery and Sales Report</h2>
+          <t t-foreach="docs" t-as="doc">
+            <h3>Grocery: <t t-esc="doc.name"/></h3>
+            <p>Category: <t t-esc="doc.category"/></p>
+            <p>Quantity: <t t-esc="doc.quantity"/></p>
+            <p>Price: <t t-esc="doc.price"/></p>
+          </t>
+
+          <h3>Sale Orders</h3>
+
+          <t t-foreach="my_sales_order" t-as="sale_order">
+              
+              <t t-esc="sale_order.name"/>
+              <t t-esc="sale_order.partner_id.name"/>
+              <t t-esc="sale_order.amount_total"/>
+    
+          </t>
+          <!-- <table class="table table-sm">
+            <tr>
+              <th>Order</th>
+              <th>Customer</th>
+              <th>Amount</th>
+            </tr>
+            <t t-foreach="my_sales_order" t-as="sale_order">
+              <tr>
+                <td><t t-esc="sale_order.name"/></td>
+                <td><t t-esc="sale_order.partner_id.name"/></td>
+                <td><t t-esc="sale_order.amount_total"/></td>
+              </tr>
+            </t>
+          </table> -->
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>

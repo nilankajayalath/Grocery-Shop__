@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+grocery_contact_access_all,grocery.contact.access.all,model_grocery_contact,base.group_system,1,1,1,1
+grocery_report_wizard_access_all,grocery.report.wizard.access.all,model_grocery_report_wizard,base.group_system,1,1,1,1
+
+access_group_grocery_shop_user,access.group.grocery.shop.user,model_grocery_details,group_grocery_shop_user,1,1,1,1
+access_group_grocery_batch_manager,access.group.grocery.batch.manager,grocery_shop.model_grocery_batch,group_grocery_shop_manager,1,0,0,0
+access_group_grocery_contact_manager,access.group.grocery.contact.manager,model_grocery_contact,group_grocery_shop_manager,1,0,0,0

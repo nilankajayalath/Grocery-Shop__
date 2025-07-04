@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_grocery_report_wizard_form" model="ir.ui.view">
+    <field name="name">grocery.report.wizard.form</field>
+    <field name="model">grocery.report.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Grocery Report Wizard">
+        <group>
+          <field name="start_date"/>
+          <field name="end_date"/>
+        </group>
+        <footer>
+          <button name="action_generate_report" string="Print Report" type="object" class="btn-primary"/>
+          <button string="Cancel" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <!-- Action to open the wizard -->
+  <record id="action_open_grocery_report_wizard" model="ir.actions.act_window">
+    <field name="name">Generate Grocery Report</field>
+    <field name="res_model">grocery.report.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <!-- Optional menu item (for testing purposes) -->
+  <menuitem id="menu_grocery_report_wizard"
+            name="Grocery Report Wizard"
+            parent="grocery_shop.grocery_menu_root"
+            action="action_open_grocery_report_wizard"
+            sequence="99"/>
+</odoo>
+
+
+
+                   

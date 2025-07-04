@@ -1,0 +1,7 @@
+<odoo>
+    
+    <menuitem
+        id="grocery_shop.menu_grocery_location"
+        groups="grocery_custom.group_grocery_shop_manager"/>
+     
+</odoo>
